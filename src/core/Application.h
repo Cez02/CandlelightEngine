@@ -3,6 +3,8 @@
 
 #include <glad/glad.h>
 #include "GLFW/glfw3.h"
+#include "core/io_processing/IOProcessor.h"
+#include "core/rendering/Renderer.h"
 
 namespace Core_NS {
     class Application {
@@ -10,6 +12,12 @@ namespace Core_NS {
         GLFWwindow* window;
         const int WINDOW_WIDTH  = 1024;
         const int WINDOW_HEIGHT = 768;
+
+        IOProcessor *ioprocessor;
+
+        Renderer *renderer;
+
+        static void cleanup();
 
     public:
         int init(int argc, char **argv);

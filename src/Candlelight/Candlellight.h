@@ -1,0 +1,8 @@
+#ifndef CANDLELIGHTENGINE_CANDLELLIGHT_H
+#define CANDLELIGHTENGINE_CANDLELLIGHT_H
+
+#include <glm/glm.hpp>
+
+typedef glm_vec4 color_rgba;
+
+#endif //CANDLELIGHTENGINE_CANDLELLIGHT_H
