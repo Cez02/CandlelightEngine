@@ -12,8 +12,6 @@ This project requires several dependencies:
 - GLM
 - STB_IMAGE
 
-For GLFW3 I of course advise downloading the source code and compiling the library yourself. Once you do that, you need to put the GLFW include directory in the include directory in the project. The .lib or .a library file should go into the lib directory.
-For Glad and stb_image you put the generated source files in the thirdparty directory and the header into the include directory.
-Since GLM is a header-only directory you place it into the include directory along with KHR.
+For GLFW3 I of course advise downloading the source code and compiling the library yourself. If you have GLFW3 on your machine, CMake may find it, however that depends on the directory. If you do compile GLFW yourself, copy the .lib or .a file to the lib directory (create one if it doesn't exist).
 
 The cmake directory has module scripts inside to help with finding GLM and GLFW3 - helps to keep the CMakeLists.txt file concise and readable.

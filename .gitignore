@@ -36,8 +36,4 @@
 cmake-build-debug
 build
 
-include/*
-lib/*
-thirdparty/*
-
 .idea
