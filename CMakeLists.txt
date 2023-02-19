@@ -15,7 +15,7 @@ file(GLOB_RECURSE HEADER_FILES
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
-add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES} src/core/objects/Cube.cpp src/core/objects/Cube.h src/core/rendering/Shader.cpp src/core/rendering/Shader.h)
 
 # Libraries
 
@@ -44,6 +44,14 @@ include_directories(
         "${CMAKE_SOURCE_DIR}/src"
         "${CMAKE_SOURCE_DIR}/include"
 )
+
+add_custom_target(copy_resources ALL
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${PROJECT_SOURCE_DIR}/data
+        ${PROJECT_BINARY_DIR}/data
+        COMMENT "Copying resources into binary directory")
+
+add_dependencies(${PROJECT_NAME} copy_resources)
 
 # Define the link libraries
 target_link_libraries(${PROJECT_NAME} ${LIBS})

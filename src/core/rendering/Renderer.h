@@ -3,6 +3,7 @@
 
 #include <glad/glad.h>
 #include "GLFW/glfw3.h"
+#include "Shader.h"
 
 namespace Core_NS {
 
@@ -11,7 +12,7 @@ namespace Core_NS {
         GLFWwindow *window;
 
         unsigned int VBO, VAO;
-        unsigned int shaderProgram;
+        Shader *shader;
 
     public:
         explicit Renderer(GLFWwindow *window);
