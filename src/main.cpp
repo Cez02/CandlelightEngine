@@ -1,7 +1,15 @@
-#include <stdio.h>
-#include "additionalfile.h"
+#include <iostream>
+#include "core/Application.h"
 
-int main(){
-    printf("Hello world.");
-    printf(" Minimum value is: %d.", MIN(2, 3));
+using namespace Core_NS;
+
+int main(int argc, char **argv) {
+    Core_NS::Application app;
+
+    if(app.init(argc, argv) < 0)
+        exit(-1);
+
+    app.loop();
+
+    return 0;
 }
