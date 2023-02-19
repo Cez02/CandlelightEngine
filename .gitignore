@@ -32,7 +32,10 @@
 *.app
 
 # Project specific
+
 cmake-build-debug
+build
+
 include/*
 lib/*
 thirdparty/*
