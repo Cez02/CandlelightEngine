@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "core/data_handler/DataLoader.h"
 #include <iostream>
 
 namespace Core_NS {
@@ -43,6 +44,8 @@ namespace Core_NS {
 
         ioprocessor = new IOProcessor(window);
         renderer = new Renderer(window);
+
+        DataLoader::load_texture2ds("data/textures");
 
         std::cout << "IOProcessor and renderer created" << std::endl;
 

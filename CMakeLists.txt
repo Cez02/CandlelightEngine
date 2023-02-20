@@ -15,7 +15,7 @@ file(GLOB_RECURSE HEADER_FILES
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
-add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES} src/core/objects/Cube.cpp src/core/objects/Cube.h src/core/rendering/Shader.cpp src/core/rendering/Shader.h)
+add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES})
 
 # Libraries
 
