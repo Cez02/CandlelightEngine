@@ -7,8 +7,8 @@ namespace Core_NS {
 
     std::map<std::string, Texture*> DataLoader::_loadedTextures = std::map<std::string, Texture*>();
 
-    unsigned char *DataLoader::get_texture2d(std::string textureName) {
-        return DataLoader::_loadedTextures[textureName]->get_data();
+    unsigned int DataLoader::get_texture2d(std::string textureName) {
+        return DataLoader::_loadedTextures[textureName]->get_id();
     }
 
     void DataLoader::load_texture2ds(const char *texturesDirectory) {
@@ -16,8 +16,10 @@ namespace Core_NS {
         int width, height, nrChannels;
 
         for (const auto & entry : fs::directory_iterator(texturesDirectory)) {
-            std::string pathString = entry.path().string();
-            DataLoader::_loadedTextures[pathString] = new Texture(pathString);
+            std::string textureName = entry.path().filename().string();
+
+            std::cout << textureName << std::endl;
+            DataLoader::_loadedTextures[textureName] = new Texture(entry);
         }
     }
 

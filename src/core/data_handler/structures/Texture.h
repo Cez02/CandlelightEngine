@@ -2,6 +2,7 @@
 #define CANDLELIGHTENGINE_TEXTURE_H
 
 #include <string>
+#include <filesystem>
 
 namespace Core_NS {
     class Texture {
@@ -15,9 +16,9 @@ namespace Core_NS {
         unsigned char * _data;
 
     public:
-        Texture(std::string textureName);
+        Texture(const std::filesystem::directory_entry &textureDirent);
 
-        unsigned char *get_data();
+        unsigned int get_id();
     };
 }
 

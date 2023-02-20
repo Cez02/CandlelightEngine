@@ -21,7 +21,7 @@ namespace Core_NS {
         static std::map<std::string, Texture*> _loadedTextures;
 
     public:
-        static unsigned char *get_texture2d(std::string textureName);
+        static unsigned int get_texture2d(std::string textureName);
         static void load_texture2ds(const char *texturesDirectory);
     };
 

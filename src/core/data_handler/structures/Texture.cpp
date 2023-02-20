@@ -1,13 +1,15 @@
 #include "Texture.h"
 #include <glad/glad.h>
+#include <iostream>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 namespace Core_NS {
-    Texture::Texture(std::string textureName) {
+    Texture::Texture(const std::filesystem::directory_entry &textureDirent) {
         // load data
-        _data = stbi_load("container.jpg", &_width, &_height, &_nrChannels, 0);
+        stbi_set_flip_vertically_on_load(true);
+        _data = stbi_load(textureDirent.path().string().c_str(), &_width, &_height, &_nrChannels, 0);
 
         // bind in opengl
         glGenTextures(1, &_textureID);
@@ -22,10 +24,15 @@ namespace Core_NS {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, _width, _height, 0, GL_RGB, GL_UNSIGNED_BYTE, _data);
         glGenerateMipmap(GL_TEXTURE_2D);
 
+        if(!_data){
+            std::cerr << "Failed to load texture " << textureDirent.path().filename().string() << "\n";
+            exit(-1);
+        }
+
         stbi_image_free(_data);
     }
 
-    unsigned char *Texture::get_data() {
-        return _data;
+    unsigned int Texture::get_id() {
+        return _textureID;
     }
 }

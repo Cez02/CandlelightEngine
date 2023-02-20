@@ -42,10 +42,10 @@ namespace Core_NS {
 
         std::cout << "Window created" << std::endl;
 
+        DataLoader::load_texture2ds("data/textures");
+
         ioprocessor = new IOProcessor(window);
         renderer = new Renderer(window);
-
-        DataLoader::load_texture2ds("data/textures");
 
         std::cout << "IOProcessor and renderer created" << std::endl;
 

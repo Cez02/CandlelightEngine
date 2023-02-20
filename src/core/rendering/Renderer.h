@@ -11,7 +11,7 @@ namespace Core_NS {
     private:
         GLFWwindow *window;
 
-        unsigned int VBO, VAO;
+        unsigned int VBO, VAO, EBO;
         Shader *shader;
 
     public:
